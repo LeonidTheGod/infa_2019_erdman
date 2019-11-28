@@ -1,10 +1,27 @@
-c1 = 5
-c2 = 6
-c3 = 7
-a = []
-for i in range(1,3+1):
-    a.append(locals().get("c"+str(i)))
+from tkinter import Tk, Label, Button
 
-print(a)
+timer_seconds = 310  # текущее положение таймера, сек
 
-# a = [5, 6, 7]
+def timer_tick():
+    global timer_seconds
+    if timer_seconds:
+        label.after(1000, timer_tick)
+        timer_seconds -= 1
+        show_timer()
+
+def show_timer():
+    '''отобразить таймер'''
+    m = timer_seconds//60
+    s = timer_seconds-m*60
+    label['text'] = '%02d:%02d' % (m, s)
+    print(timer_seconds)
+
+root = Tk()
+while timer_seconds or Button(root, text="Quit", command=root.destroy).pack():
+    label = Label(root)
+    label.pack()
+    show_timer()
+    timer_tick()
+    print(timer_seconds)
+    root.mainloop()
+    
