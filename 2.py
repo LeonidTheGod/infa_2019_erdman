@@ -1,17 +1,6 @@
-class Dog:
-    def __init__(self, angry, count):
-        self.angry = angry
-        self.count = count
-    def __str__(self):
-        return self.angry + ' ' + str(self.angry)
+a = set(range(10))
+b = set(range(5, 15))
 
-    def say_gaw(self):
-        if self.angry:
-            print('GAW-' * self.count)
-        else:
-            print('gaw-' * self.count)
-
-my_dog = Dog(True, 3)
-my_dog.say_gaw()   
-my_dog.__str__()
-
+contact = a & b
+if contact:
+	print('yes he"s')	
